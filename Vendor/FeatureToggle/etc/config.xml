@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <default>
+        <featuretoggle>
+            <general>
+                <enable>1</enable>
+            </general>
+        </featuretoggle>
+    </default>
+</config>

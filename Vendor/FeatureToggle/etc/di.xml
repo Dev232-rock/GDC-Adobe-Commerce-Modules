@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Plugin -->
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="vendor_featuretoggle_productname"
+                type="Vendor\FeatureToggle\Plugin\ProductNamePlugin"/>
+    </type>
+
+    <!-- Preference -->
+    <preference for="Magento\Catalog\Model\Product"
+                type="Vendor\FeatureToggle\Model\Product"/>
+
+</config>
