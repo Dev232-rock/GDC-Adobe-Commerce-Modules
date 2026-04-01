@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
 namespace Vendor\FeatureToggle\Plugin;
 
 use Vendor\FeatureToggle\Helper\Data;

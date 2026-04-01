@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
 namespace Vendor\FeatureToggle\Model;
 
 use Magento\Catalog\Model\Product as MagentoProduct;
