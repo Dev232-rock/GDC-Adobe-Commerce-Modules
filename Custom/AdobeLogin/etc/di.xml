@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Plugin to restrict login -->
+    <type name="Magento\Customer\Model\AccountManagement">
+        <plugin name="adobelogin_customer_login_plugin"
+                type="Custom\AdobeLogin\Plugin\CustomerLoginPlugin"/>
+    </type>
+
+    <!-- Plugin to append last name on registration -->
+    <type name="Magento\Customer\Model\AccountManagement">
+        <plugin name="adobelogin_append_lastname_plugin"
+                type="Custom\AdobeLogin\Plugin\AppendLastnamePlugin"/>
+    </type>
+
+</config>
