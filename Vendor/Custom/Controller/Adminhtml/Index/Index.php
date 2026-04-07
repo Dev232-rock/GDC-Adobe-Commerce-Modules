@@ -8,7 +8,7 @@ class Index extends Action
 {
     const ADMIN_RESOURCE = 'Vendor_Custom::index';
 
-    private $resultPageFactory;
+    protected $resultPageFactory;
 
     public function __construct(
         Action\Context $context,
@@ -19,7 +19,14 @@ class Index extends Action
     }
 
     public function execute()
-    {
-        return $this->resultPageFactory->create();
-    }
+{
+    /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
+    $resultPage = $this->resultPageFactory->create();
+    $resultPage->addHandle('customadmin_index_index');
+
+    $resultPage->setActiveMenu('Vendor_Custom::index');
+    $resultPage->getConfig()->getTitle()->prepend(__('Custom Page'));
+
+    return $resultPage;
+}
 }

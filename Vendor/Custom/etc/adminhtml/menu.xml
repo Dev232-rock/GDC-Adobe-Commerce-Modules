@@ -3,7 +3,6 @@
  xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
 
     <menu>
-        <!-- Main Menu -->
         <add id="Vendor_Custom::main"
              title="Custom Module"
              module="Vendor_Custom"
@@ -11,7 +10,6 @@
              parent="Magento_Backend::content"
              resource="Vendor_Custom::main"/>
 
-        <!-- Sub Menu -->
         <add id="Vendor_Custom::index"
              title="Custom Page"
              module="Vendor_Custom"

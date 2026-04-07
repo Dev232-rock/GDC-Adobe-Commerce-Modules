@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<acl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+ <acl>
     <resources>
         <resource id="Magento_Backend::admin">
             <resource id="Vendor_Custom::main" title="Custom Module">
@@ -9,3 +10,4 @@
         </resource>
     </resources>
 </acl>
+</config>
