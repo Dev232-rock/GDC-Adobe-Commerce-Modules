@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
 
 namespace Vendor\CustomRouter\Router;
 
@@ -15,7 +19,7 @@ class CustomRouter implements RouterInterface
 
     /**
      * CustomRouter constructor.
-     * 
+     *
      * @param ActionFactory $actionFactory
      * @param ResponseInterface $response
      */
