@@ -1,0 +1,85 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+/** @var \Adobe\Employee\Block\Form $block */
+$employee = $block->getEmployee();
+
+$id = $employee ? $employee->getId() : '';
+$name = $employee ? $employee->getName() : '';
+$joiningDate = $employee ? $employee->getJoiningDate() : '';
+$designation = $employee ? $employee->getDesignation() : '';
+$address = $employee ? $employee->getAddress() : '';
+$status = $employee ? $employee->getStatus() : 1;
+
+$hobbies = $block->getHobbies();
+?>
+
+<form action="<?= $block->getFormAction(); ?>" method="post">
+
+    <input type="hidden" name="id" value="<?= htmlspecialchars((string)$id) ?>">
+
+    <div>
+        <label>Name:</label><br>
+        <input type="text" name="name" value="<?= htmlspecialchars((string)$name) ?>" required>
+    </div>
+
+    <div>
+        <label>Joining Date:</label><br>
+        <input type="date" name="joining_date" value="<?= htmlspecialchars((string)$joiningDate) ?>">
+    </div>
+
+    <div>
+        <label>Designation:</label><br>
+        <input type="text" name="designation" value="<?= htmlspecialchars((string)$designation) ?>">
+    </div>
+
+    <div>
+        <label>Address:</label><br>
+        <textarea name="address"><?= htmlspecialchars((string)$address) ?></textarea>
+    </div>
+
+    <div>
+        <label>Status:</label><br>
+        <select name="status">
+            <option value="1" <?= $status ? 'selected' : '' ?>>Active</option>
+            <option value="0" <?= !$status ? 'selected' : '' ?>>Inactive</option>
+        </select>
+    </div>
+
+    <div id="hobby-container">
+        <label>Hobbies:</label><br>
+
+        <?php if (!empty($hobbies)): ?>
+            <?php foreach ($hobbies as $hobby): ?>
+                <?php if (trim($hobby) !== ''): ?>
+                    <input type="text" name="hobbies[]" value="<?= htmlspecialchars((string)$hobby) ?>"><br>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+        <!-- always one empty -->
+        <input type="text" name="hobbies[]" placeholder="Enter hobby"><br>
+    </div>
+
+    <button type="button" onclick="addHobby()">+ Add Hobby</button>
+
+    <br><br>
+
+    <button type="submit">Save Employee</button>
+
+</form>
+
+<script>
+function addHobby() {
+    let container = document.getElementById('hobby-container');
+    let input = document.createElement('input');
+    input.type = 'text';
+    input.name = 'hobbies[]';
+    input.placeholder = 'Enter hobby';
+
+    container.appendChild(input);
+    container.appendChild(document.createElement('br'));
+}
+</script>
