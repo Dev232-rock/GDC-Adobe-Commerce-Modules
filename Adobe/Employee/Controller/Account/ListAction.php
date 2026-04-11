@@ -11,6 +11,9 @@ use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Customer\Model\Session;
 
+/**
+ * ListAction class
+ */
 class ListAction extends AbstractAccount
 {
     /**

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="config" type="configType"/>
+
+    <xs:complexType name="welcome_messageType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="store_id" type="xs:string" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="configType">
+        <xs:sequence>
+            <xs:element name="welcome_message"
+                        type="welcome_messageType"
+                        maxOccurs="unbounded"
+                        minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

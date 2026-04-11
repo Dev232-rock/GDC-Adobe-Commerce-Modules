@@ -8,10 +8,12 @@ namespace Adobe\Employee\Controller\Account;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\View\Result\PageFactory;
 
+/**
+ * Add class
+ */
 class Add extends Action
 {
     protected $resultPageFactory;
-
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
         PageFactory $resultPageFactory
@@ -19,6 +21,9 @@ class Add extends Action
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
     }
+    /**
+     *
+     */
 
     public function execute()
     {

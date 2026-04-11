@@ -8,7 +8,9 @@ namespace Adobe\Employee\Controller\Account;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Adobe\Employee\Model\EmployeeFactory;
-
+/**
+ * Save class
+ */
 class Save extends Action
 {
     protected $employeeFactory;
@@ -20,7 +22,11 @@ class Save extends Action
         parent::__construct($context);
         $this->employeeFactory = $employeeFactory;
     }
-
+    /**
+     * execute function
+     *
+     * @return void
+     */
     public function execute()
     {
         $data = $this->getRequest()->getParams();

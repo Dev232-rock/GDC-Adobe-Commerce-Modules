@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
 /** @var \Adobe\Employee\Block\Form $block */
 $employees = $block->getEmployees();
 ?>
@@ -14,64 +10,63 @@ $employees = $block->getEmployees();
     </a>
 </div>
 
-<table border="1" cellpadding="10" cellspacing="0" width="100%">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Joining Date</th>
-            <th>Designation</th>
-            <th>Address</th>
-            <th>Status</th>
-            <th>Hobbies</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
+<!-- Header -->
+<div style="display:grid; grid-template-columns: 50px 150px 130px 180px 150px 100px 200px 120px; font-weight:bold; border-bottom:2px solid #000; padding:10px 0;">
+    <div>ID</div>
+    <div>Name</div>
+    <div>Joining Date</div>
+    <div>Designation</div>
+    <div>Address</div>
+    <div>Status</div>
+    <div>Hobbies</div>
+    <div>Actions</div>
+</div>
 
-    <tbody>
-        <?php if ($employees && count($employees)): ?>
-            <?php foreach ($employees as $employee): ?>
-                <tr>
-                    <td><?= (int)$employee->getId() ?></td>
+<?php if ($employees && count($employees)): ?>
+    
+    <?php foreach ($employees as $employee): ?>
+        
+        <div style="display:grid; grid-template-columns: 50px 150px 130px 180px 150px 100px 200px 120px; padding:10px 0; border-bottom:1px solid #ddd;">
 
-                    <td><?= htmlspecialchars((string)$employee->getName()) ?></td>
+            <div><?= (int)$employee->getId() ?></div>
 
-                    <td><?= htmlspecialchars((string)$employee->getJoiningDate()) ?></td>
+            <div><?= htmlspecialchars((string)$employee->getName()) ?></div>
 
-                    <td><?= htmlspecialchars((string)$employee->getDesignation()) ?></td>
+            <div><?= htmlspecialchars((string)$employee->getJoiningDate()) ?></div>
 
-                    <td><?= htmlspecialchars((string)$employee->getAddress()) ?></td>
+            <div><?= htmlspecialchars((string)$employee->getDesignation()) ?></div>
 
-                    <td><?= $employee->getStatus() ? 'Active' : 'Inactive' ?></td>
+            <div><?= htmlspecialchars((string)$employee->getAddress()) ?></div>
 
-                    <td>
-                        <?php
-                        $hobbies = $employee->getHobbies();
+            <div><?= $employee->getStatus() ? 'Active' : 'Inactive' ?></div>
 
-                        if (is_string($hobbies)) {
-                            $hobbies = json_decode($hobbies, true);
-                        }
+            <div>
+                <?php
+                $hobbies = $employee->getHobbies();
 
-                        $hobbies = is_array($hobbies)
-                            ? array_filter(array_map('trim', $hobbies))
-                            : [];
-                        ?>
+                if (is_string($hobbies)) {
+                    $hobbies = json_decode($hobbies, true);
+                }
 
-                        <?= htmlspecialchars(implode(', ', $hobbies)) ?>
-                    </td>
+                $hobbies = is_array($hobbies)
+                    ? array_filter(array_map('trim', $hobbies))
+                    : [];
+                ?>
 
-                    <td>
-                        <a href="<?= $block->getUrl('employee/account/edit', ['id' => $employee->getId()]) ?>">Edit</a>
-                        |
-                        <a href="<?= $block->getUrl('employee/account/delete', ['id' => $employee->getId()]) ?>"
-                           onclick="return confirm('Delete this employee?')">Delete</a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <tr>
-                <td colspan="8" align="center">No Employees Found</td>
-            </tr>
-        <?php endif; ?>
-    </tbody>
-</table>
+                <?= htmlspecialchars(implode(', ', $hobbies)) ?>
+            </div>
+
+            <div>
+                <a href="<?= $block->getUrl('employee/account/edit', ['id' => $employee->getId()]) ?>">Edit</a>
+                |
+                <a href="<?= $block->getUrl('employee/account/delete', ['id' => $employee->getId()]) ?>"
+                   onclick="return confirm('Delete this employee?')">Delete</a>
+            </div>
+
+        </div>
+
+    <?php endforeach; ?>
+
+<?php else: ?>
+    <div style="padding:10px;">No Employees Found</div>
+<?php endif; ?>

@@ -4,7 +4,9 @@
  * See COPYING.txt for license details.
  */
 namespace Adobe\Employee\Api;
-
+/**
+ * EmployeeRepository interface
+ */
 interface EmployeeRepositoryInterface
 {
     public function save($employee);

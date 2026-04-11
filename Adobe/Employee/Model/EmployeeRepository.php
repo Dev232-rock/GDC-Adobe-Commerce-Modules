@@ -6,7 +6,9 @@
 namespace Adobe\Employee\Model;
 
 use Adobe\Employee\Api\EmployeeRepositoryInterface;
-
+/**
+ * EmployeeRepository class
+ */
 class EmployeeRepository implements EmployeeRepositoryInterface
 {
     protected $factory, $resource, $collectionFactory;

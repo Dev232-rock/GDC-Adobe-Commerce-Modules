@@ -7,7 +7,9 @@ namespace Adobe\Employee\Block\Employee;
 
 use Magento\Framework\View\Element\Template;
 use Adobe\Employee\Model\ResourceModel\Employee\CollectionFactory;
-
+/**
+ * EmployeeList class
+ */
 class EmployeeList extends Template
 {
     protected $collectionFactory;

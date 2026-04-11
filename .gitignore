@@ -1,0 +1,4 @@
+/generated/
+/var/
+/vendor/
+.DS_Store
