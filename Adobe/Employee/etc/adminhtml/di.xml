@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright 2013 Adobe
+ * All Rights Reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="employee_employee_listing_data_source" xsi:type="string">
+                    AdobeEmployeeGridCollection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="AdobeEmployeeGridCollection"
+                 type="Adobe\Employee\Model\ResourceModel\Employee\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">adobe_employee</argument>
+            <argument name="resourceModel" xsi:type="string">Adobe\Employee\Model\ResourceModel\Employee</argument>
+        </arguments>
+    </virtualType>
+
+</config>

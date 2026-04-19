@@ -6,6 +6,7 @@
 namespace Adobe\Employee\Model;
 
 use Magento\Framework\Model\AbstractModel;
+
 /**
  * Employee Abstract class
  */

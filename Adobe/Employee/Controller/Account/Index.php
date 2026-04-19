@@ -7,9 +7,8 @@ namespace Adobe\Employee\Controller\Account;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\View\Result\PageFactory;
-
 /**
- * Index class
+ * Index Extend Action class
  */
 class Index extends Action
 {

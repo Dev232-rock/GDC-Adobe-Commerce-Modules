@@ -3,26 +3,25 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Adobe\Employee\Controller\Account;
+namespace Adobe\Employee\Controller\Adminhtml\Employee;
 
-use Magento\Framework\App\Action\Action;
+use Magento\Backend\App\Action;
 use Magento\Framework\View\Result\PageFactory;
 /**
- * Add Action class
+ * Index class
+ * Extend Action 
  */
-class Add extends Action
+class Index extends Action
 {
     protected $resultPageFactory;
+
     public function __construct(
-        \Magento\Framework\App\Action\Context $context,
+        Action\Context $context,
         PageFactory $resultPageFactory
     ) {
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
     }
-    /**
-     *
-     */
 
     public function execute()
     {

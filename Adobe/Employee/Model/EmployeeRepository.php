@@ -7,7 +7,7 @@ namespace Adobe\Employee\Model;
 
 use Adobe\Employee\Api\EmployeeRepositoryInterface;
 /**
- * EmployeeRepository class
+ * EmployeeRepository Interface class
  */
 class EmployeeRepository implements EmployeeRepositoryInterface
 {

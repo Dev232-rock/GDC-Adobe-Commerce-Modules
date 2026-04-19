@@ -9,7 +9,7 @@ use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Adobe\Employee\Model\EmployeeFactory;
 /**
- * Save class
+ * Class Save Action class
  */
 class Save extends Action
 {
@@ -49,7 +49,7 @@ class Save extends Action
                 $employee->setAddress($data['address'] ?? '');
                 $employee->setStatus(isset($data['status']) ? (int)$data['status'] : 0);
 
-                // ✅ FIXED: hobbies as string
+                // hobbies as string
                 $hobbies = $data['hobbies'] ?? '';
 
                 if (is_array($hobbies)) {

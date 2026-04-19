@@ -10,9 +10,8 @@ use Magento\Customer\Controller\AbstractAccount;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Customer\Model\Session;
-
 /**
- * ListAction class
+ * ListAction Extends class
  */
 class ListAction extends AbstractAccount
 {

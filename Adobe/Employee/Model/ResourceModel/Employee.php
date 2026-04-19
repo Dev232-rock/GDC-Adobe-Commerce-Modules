@@ -7,12 +7,12 @@ namespace Adobe\Employee\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 /**
- * Employee class
+ * Employee AbstractDB class
  */
 class Employee extends AbstractDb
 {
     protected function _construct()
     {
-        $this->_init('Adobe_employee', 'entity_id');
+        $this->_init('adobe_employee', 'entity_id');
     }
 }

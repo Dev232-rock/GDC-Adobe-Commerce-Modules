@@ -8,7 +8,7 @@ namespace Adobe\Employee\Controller\Account;
 use Magento\Framework\App\Action\Action;
 use Adobe\Employee\Api\EmployeeRepositoryInterface;
 /**
- * Delete class
+ * Delete Action class
  */
 class Delete extends Action
 {
