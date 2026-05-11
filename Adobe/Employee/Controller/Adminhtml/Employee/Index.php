@@ -7,9 +7,10 @@ namespace Adobe\Employee\Controller\Adminhtml\Employee;
 
 use Magento\Backend\App\Action;
 use Magento\Framework\View\Result\PageFactory;
+
 /**
  * Index class
- * Extend Action 
+ * Extend Action
  */
 class Index extends Action
 {

@@ -7,6 +7,10 @@ namespace Adobe\Employee\Model\ResourceModel\Employee;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
+/**
+ * Collection class
+ * AbstractCollection
+ */
 class Collection extends AbstractCollection
 {
     protected function _construct()

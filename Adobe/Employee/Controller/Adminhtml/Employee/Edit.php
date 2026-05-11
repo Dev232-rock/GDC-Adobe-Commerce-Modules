@@ -7,8 +7,9 @@ namespace Adobe\Employee\Controller\Adminhtml\Employee;
 
 use Magento\Backend\App\Action;
 use Magento\Framework\View\Result\PageFactory;
+
 /**
- * Edit Extends Action class
+ * Edit Action class
  */
 class Edit extends Action
 {

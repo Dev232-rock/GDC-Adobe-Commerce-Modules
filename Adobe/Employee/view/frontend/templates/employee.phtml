@@ -1,0 +1,18 @@
+<div id="employee-list-container" data-bind="scope: 'employeeList'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+{
+    "#employee-list-container": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "employeeList": {
+                    "component": "Adobe_Employee/js/employee-list",
+                    "template": "Adobe_Employee/employee"
+                }
+            }
+        }
+    }
+}
+</script>

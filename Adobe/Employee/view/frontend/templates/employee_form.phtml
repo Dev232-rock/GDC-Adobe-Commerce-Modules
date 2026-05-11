@@ -1,0 +1,43 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$registry = $objectManager->get(\Magento\Framework\Registry::class);
+
+$employee = $registry->registry('current_employee');
+
+$employeeData = [];
+
+if ($employee) {
+    $employeeData = [
+        'entity_id'    => $employee->getId(),
+        'name'         => $employee->getName(),
+        'joining_date' => $employee->getJoiningDate(),
+        'designation'  => $employee->getDesignation(),
+        'address'      => $employee->getAddress(),
+        'hobbies'      => $employee->getHobbies(),
+        'status'       => $employee->getStatus()
+    ];
+}
+?>
+
+<div id="employee-form-container" data-bind="scope: 'employeeForm'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+{
+    "#employee-form-container": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "employeeForm": {
+                    "component": "Adobe_Employee/js/view/employee-form",
+                    "employeeData": <?= json_encode($employeeData) ?>
+                }
+            }
+        }
+    }
+}
+</script>

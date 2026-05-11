@@ -5,14 +5,15 @@
  * All Rights Reserved.
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="customer_account_navigation">
-            <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-employee-link">
+            <block class="Magento\Framework\View\Element\Html\Link\Current"
+                   name="customer-account-navigation-employee-link">
                 <arguments>
-                    <argument name="label" xsi:type="string">My Employees</argument>
-                    <argument name="path" xsi:type="string">employee/account/index</argument>
-                    <argument name="sortOrder" xsi:type="number">250</argument>
+                    <argument name="label" xsi:type="string">Employee Listing</argument>
+                    <argument name="path" xsi:type="string">employee/index/index</argument>
                 </arguments>
             </block>
         </referenceBlock>

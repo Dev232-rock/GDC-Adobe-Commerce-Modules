@@ -5,10 +5,46 @@
  */
 namespace Adobe\Employee\Api;
 
-/**interface EmployeeRepositoryInterface
+use Adobe\Employee\Api\Data\EmployeeInterface;
+
+interface EmployeeRepositoryInterface
 {
-    public function save($employee);
+    /**
+     * Save employee
+     *
+     * @param EmployeeInterface $employee
+     * @return EmployeeInterface
+     */
+    public function save(EmployeeInterface $employee);
+
+    /**
+     * Get employee by ID
+     *
+     * @param int $id
+     * @return EmployeeInterface
+     */
     public function getById($id);
-    public function delete($employee);
+
+    /**
+     * Delete employee
+     *
+     * @param EmployeeInterface $employee
+     * @return bool
+     */
+    public function delete(EmployeeInterface $employee);
+
+    /**
+     * Delete employee by ID
+     *
+     * @param int $id
+     * @return bool
+     */
+    public function deleteById($id);
+
+    /**
+     * Get employee list
+     *
+     * @return EmployeeInterface[]
+     */
     public function getList();
 }

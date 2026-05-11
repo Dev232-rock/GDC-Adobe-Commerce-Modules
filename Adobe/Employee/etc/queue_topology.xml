@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright 2013 Adobe
+ * All Rights Reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/topology.xsd">
+
+    <exchange name="magento">
+
+        <binding id="employeeStatusBinding"
+                 topic="employee.status.update"
+                 destinationType="queue"
+                 destination="employee.status.queue"/>
+
+    </exchange>
+</config>

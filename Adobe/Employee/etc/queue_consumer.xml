@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright 2013 Adobe
+ * All Rights Reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/consumer.xsd">
+
+    <consumer
+        name="employee.status.consumer"
+        queue="employee.status.queue"
+        handler="Adobe\Employee\Model\Consumer\EmployeeStatusConsumer::process"/>
+</config>

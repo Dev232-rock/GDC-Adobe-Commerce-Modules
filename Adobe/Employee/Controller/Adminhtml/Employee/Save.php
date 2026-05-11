@@ -6,19 +6,21 @@
 namespace Adobe\Employee\Controller\Adminhtml\Employee;
 
 use Magento\Backend\App\Action;
-use Adobe\Employee\Model\EmployeeFactory;
-/**
- * Save Action class
- */
+use Adobe\Employee\Api\EmployeeRepositoryInterface;
+use Adobe\Employee\Api\Data\EmployeeInterfaceFactory;
+
 class Save extends Action
 {
+    protected $employeeRepository;
     protected $employeeFactory;
 
     public function __construct(
         Action\Context $context,
-        EmployeeFactory $employeeFactory
+        EmployeeRepositoryInterface $employeeRepository,
+        EmployeeInterfaceFactory $employeeFactory
     ) {
         parent::__construct($context);
+        $this->employeeRepository = $employeeRepository;
         $this->employeeFactory = $employeeFactory;
     }
 
@@ -28,16 +30,20 @@ class Save extends Action
 
         if ($data) {
             try {
-                $model = $this->employeeFactory->create();
-
                 if (!empty($data['entity_id'])) {
-                    $model->load($data['entity_id']);
+                    $employee = $this->employeeRepository->getById($data['entity_id']);
+                } else {
+                    $employee = $this->employeeFactory->create();
                 }
 
-                $data['hobbies'] = trim($data['hobbies']);
+                $employee->setName($data['name']);
+                $employee->setJoiningDate($data['joining_date']);
+                $employee->setDesignation($data['designation']);
+                $employee->setAddress($data['address']);
+                $employee->setHobbies(trim($data['hobbies']));
+                $employee->setStatus($data['status']);
 
-                $model->setData($data);
-                $model->save();
+                $this->employeeRepository->save($employee);
 
                 $this->messageManager->addSuccessMessage(__('Employee saved successfully.'));
             } catch (\Exception $e) {

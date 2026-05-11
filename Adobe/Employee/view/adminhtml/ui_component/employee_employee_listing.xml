@@ -11,65 +11,163 @@
     <!-- TOP CONFIG -->
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">employee_employee_listing.employee_employee_listing_data_source</item>
-            <item name="deps" xsi:type="string">employee_employee_listing.employee_employee_listing_data_source</item>
+            <item name="provider" xsi:type="string">
+                employee_employee_listing.employee_employee_listing_data_source
+            </item>
+            <item name="deps" xsi:type="string">
+                employee_employee_listing.employee_employee_listing_data_source
+            </item>
         </item>
-        <item name="spinner" xsi:type="string">employee_columns</item>
 
-        <!-- ADD NEW BUTTON -->
+        <item name="spinner" xsi:type="string">
+            employee_columns
+        </item>
+
+        <!-- ADD BUTTON -->
         <item name="buttons" xsi:type="array">
             <item name="add" xsi:type="array">
                 <item name="name" xsi:type="string">add</item>
-                <item name="label" xsi:type="string" translate="true">Add New Employee</item>
+                <item name="label" xsi:type="string" translate="true">
+                    Add New Employee
+                </item>
                 <item name="class" xsi:type="string">primary</item>
-                <item name="url" xsi:type="string">employee/employee/edit</item>
+                <item name="url" xsi:type="string">
+                    employee/employee/edit
+                </item>
             </item>
         </item>
     </argument>
 
     <!-- DATA SOURCE -->
     <dataSource name="employee_employee_listing_data_source">
+
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
-            <argument name="name" xsi:type="string">employee_employee_listing_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
-            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
+
+            <argument name="class" xsi:type="string">
+                Adobe\Employee\Model\Employee\DataProvider
+            </argument>
+
+            <argument name="name" xsi:type="string">
+                employee_employee_listing_data_source
+            </argument>
+
+            <argument name="primaryFieldName" xsi:type="string">
+                entity_id
+            </argument>
+
+            <argument name="requestFieldName" xsi:type="string">
+                entity_id
+            </argument>
+
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+
+                    <item name="update_url"
+                          xsi:type="url"
+                          path="mui/index/render"/>
+
                     <item name="storageConfig" xsi:type="array">
-                        <item name="indexField" xsi:type="string">entity_id</item>
+                        <item name="indexField" xsi:type="string">
+                            entity_id
+                        </item>
                     </item>
+
                 </item>
             </argument>
+
         </argument>
 
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
-                <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                <item name="component" xsi:type="string">
+                    Magento_Ui/js/grid/provider
+                </item>
             </item>
         </argument>
+
     </dataSource>
 
     <!-- TOOLBAR -->
     <listingToolbar name="listing_top">
 
         <massaction name="listing_massaction">
+
+            <!-- DELETE -->
             <action name="delete">
                 <settings>
                     <type>delete</type>
-                    <label translate="true">Delete</label>
+
+                    <label translate="true">
+                        Delete
+                    </label>
+
                     <url path="employee/employee/massDelete"/>
+
                     <confirm>
-                        <message translate="true">Are you sure you want to delete selected records?</message>
-                        <title translate="true">Delete Records</title>
+                        <message translate="true">
+                            Are you sure you want to delete selected records?
+                        </message>
+
+                        <title translate="true">
+                            Delete Records
+                        </title>
                     </confirm>
                 </settings>
             </action>
+
+            <!-- ENABLE -->
+    <action name="enable">
+        <settings>
+            <type>enable</type>
+
+            <label translate="true">
+                Update Status To Enabled
+            </label>
+
+            <url path="employee/employee/massStatus/status/1"/>
+
+            <confirm>
+                <message translate="true">
+                    Are you sure you want to enable selected employees?
+                </message>
+
+                <title translate="true">
+                    Enable Employees
+                </title>
+            </confirm>
+        </settings>
+    </action>
+
+    <!-- DISABLE -->
+    <action name="disable">
+        <settings>
+            <type>disable</type>
+
+            <label translate="true">
+                Update Status To Disabled
+            </label>
+
+            <url path="employee/employee/massStatus/status/0"/>
+
+            <confirm>
+                <message translate="true">
+                    Are you sure you want to disable selected employees?
+                </message>
+
+                <title translate="true">
+                    Disable Employees
+                </title>
+            </confirm>
+        </settings>
+    </action>
+
+
+
         </massaction>
 
         <filters name="listing_filters"/>
         <paging name="listing_paging"/>
+
     </listingToolbar>
 
     <!-- COLUMNS -->
@@ -81,6 +179,7 @@
             </settings>
         </selectionsColumn>
 
+        <!-- ID -->
         <column name="entity_id">
             <settings>
                 <filter>textRange</filter>
@@ -89,6 +188,7 @@
             </settings>
         </column>
 
+        <!-- NAME -->
         <column name="name">
             <settings>
                 <filter>text</filter>
@@ -96,6 +196,7 @@
             </settings>
         </column>
 
+        <!-- JOINING DATE -->
         <column name="joining_date">
             <settings>
                 <filter>dateRange</filter>
@@ -103,6 +204,7 @@
             </settings>
         </column>
 
+        <!-- DESIGNATION -->
         <column name="designation">
             <settings>
                 <filter>text</filter>
@@ -110,6 +212,7 @@
             </settings>
         </column>
 
+        <!-- ADDRESS -->
         <column name="address">
             <settings>
                 <filter>text</filter>
@@ -117,6 +220,7 @@
             </settings>
         </column>
 
+        <!-- STATUS -->
         <column name="status">
             <settings>
                 <filter>select</filter>
@@ -126,6 +230,7 @@
             </settings>
         </column>
 
+        <!-- HOBBIES -->
         <column name="hobbies">
             <settings>
                 <filter>text</filter>
@@ -133,7 +238,9 @@
             </settings>
         </column>
 
-        <actionsColumn name="actions" class="Adobe\Employee\Ui\Component\Listing\Column\EmployeeActions">
+        <!-- ACTIONS -->
+        <actionsColumn name="actions"
+                       class="Adobe\Employee\Ui\Component\Listing\Column\EmployeeActions">
             <settings>
                 <indexField>entity_id</indexField>
                 <label>Actions</label>
@@ -141,4 +248,5 @@
         </actionsColumn>
 
     </columns>
+
 </listing>

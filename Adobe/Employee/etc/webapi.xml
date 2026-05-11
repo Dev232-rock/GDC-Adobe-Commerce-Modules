@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright 2013 Adobe
+ * All Rights Reserved.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!-- GET Employee -->
+    <route url="/V1/employee/:id" method="GET">
+        <service class="Adobe\Employee\Api\EmployeeRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="Magento_Backend::admin"/>
+        </resources>
+    </route>
+
+    <!-- GET Employee List -->
+    <route url="/V1/employees" method="GET">
+        <service class="Adobe\Employee\Api\EmployeeRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="Magento_Backend::admin"/>
+        </resources>
+    </route>
+
+    <!-- UPDATE Employee -->
+    <route url="/V1/employee" method="POST">
+        <service class="Adobe\Employee\Api\EmployeeRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Magento_Backend::admin"/>
+        </resources>
+    </route>
+
+    <!-- DELETE Employee -->
+    <route url="/V1/employee/:id" method="DELETE">
+        <service class="Adobe\Employee\Api\EmployeeRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Magento_Backend::admin"/>
+        </resources>
+    </route>
+
+</routes>

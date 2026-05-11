@@ -6,6 +6,7 @@
 namespace Adobe\Employee\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
+
 /**
  * Employee AbstractDB class
  */

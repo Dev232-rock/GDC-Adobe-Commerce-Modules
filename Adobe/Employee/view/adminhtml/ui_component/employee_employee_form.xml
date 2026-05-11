@@ -40,7 +40,7 @@
             <submitUrl path="employee/employee/save"/>
         </settings>
 
-        <dataProvider class="Adobe\Employee\Model\Employee\DataProvider"
+        <dataProvider class="Adobe\Employee\Model\Employee\FormDataProvider"
                       name="employee_employee_form_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
@@ -69,6 +69,22 @@
                 <dataScope>designation</dataScope>
             </settings>
         </field>
+        <field name="joining_date" formElement="date">
+    <settings>
+        <dataType>date</dataType>
+        <label translate="true">Joining Date</label>
+        <dataScope>joining_date</dataScope>
+    </settings>
+    <formElements>
+        <date>
+            <settings>
+                <options>
+                    <option name="dateFormat" xsi:type="string">yyyy-MM-dd</option>
+                </options>
+            </settings>
+        </date>
+    </formElements>
+</field>
 
         <field name="address" formElement="textarea">
             <settings>

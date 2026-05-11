@@ -1,0 +1,52 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div>
+    <button data-bind="click: goToCreate">Add Employee</button>
+
+    <table border="1" width="100%">
+        <thead>
+            <tr>
+                <th style="cursor:pointer;" data-bind="click: function(){ sortBy('entity_id') }">
+    ID
+</th>
+                <th>Name</th>
+                <th>Joining Date</th>
+                <th>Designation</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Hobbies</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody data-bind="foreach: employees">
+            <tr>
+                <td data-bind="text: entity_id"></td>
+                <td data-bind="text: name"></td>
+                <td data-bind="text: joining_date"></td>
+                <td data-bind="text: designation"></td>
+                <td data-bind="text: address"></td>
+                <td data-bind="text: status"></td>
+                <td data-bind="text: hobbies"></td>
+                <td>
+                    <button data-bind="click: $parent.editEmployee">Edit</button>
+                    <button data-bind="click: function(){ $parent.deleteEmployee($data) }">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="margin-top:20px;">
+    <button data-bind="click: prevPage, enable: currentPage() > 1">Previous</button>
+
+    <span>
+        Page <span data-bind="text: currentPage"></span>
+        of <span data-bind="text: totalPages"></span>
+    </span>
+
+    <button data-bind="click: nextPage, enable: currentPage() < totalPages()">Next</button>
+</div>

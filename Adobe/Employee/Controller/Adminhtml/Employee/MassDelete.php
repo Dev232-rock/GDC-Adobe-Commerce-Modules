@@ -8,22 +8,28 @@ namespace Adobe\Employee\Controller\Adminhtml\Employee;
 use Magento\Backend\App\Action;
 use Magento\Ui\Component\MassAction\Filter;
 use Adobe\Employee\Model\ResourceModel\Employee\CollectionFactory;
+use Adobe\Employee\Api\EmployeeRepositoryInterface;
+
 /**
- * MassDelete Extends Action Class
+ * MassDelete class
+ * Extend Action
  */
 class MassDelete extends Action
 {
     protected $filter;
     protected $collectionFactory;
+    protected $employeeRepository;
 
     public function __construct(
         Action\Context $context,
         Filter $filter,
-        CollectionFactory $collectionFactory
+        CollectionFactory $collectionFactory,
+        EmployeeRepositoryInterface $employeeRepository
     ) {
         parent::__construct($context);
         $this->filter = $filter;
         $this->collectionFactory = $collectionFactory;
+        $this->employeeRepository = $employeeRepository;
     }
 
     public function execute()
@@ -33,7 +39,7 @@ class MassDelete extends Action
 
             $count = 0;
             foreach ($collection as $item) {
-                $item->delete();
+                $this->employeeRepository->delete($item);
                 $count++;
             }
 

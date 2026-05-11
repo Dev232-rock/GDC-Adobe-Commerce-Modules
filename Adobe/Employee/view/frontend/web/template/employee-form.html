@@ -1,0 +1,45 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<div class="employee-form">
+    <h2 data-bind="text: formTitle"></h2>
+
+    <div>
+        <label>Name</label>
+        <input type="text" data-bind="value: name" />
+    </div>
+
+    <div>
+        <label>Joining Date</label>
+        <input type="date" data-bind="value: joining_date" />
+    </div>
+
+    <div>
+        <label>Designation</label>
+        <input type="text" data-bind="value: designation" />
+    </div>
+
+    <div>
+        <label>Address</label>
+        <textarea data-bind="value: address"></textarea>
+    </div>
+
+    <div>
+        <label>Hobbies</label>
+        <input type="text" data-bind="value: hobbies" />
+    </div>
+
+    <div>
+        <label>Status</label>
+        <select data-bind="value: status">
+            <option value="1">Active</option>
+            <option value="0">Inactive</option>
+        </select>
+    </div>
+
+    <button type="button" data-bind="click: saveEmployee">Save</button>
+</div>

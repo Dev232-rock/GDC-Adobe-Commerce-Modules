@@ -1,0 +1,42 @@
+type Employee {
+    entity_id: Int
+    name: String
+    joining_date: String
+    designation: String
+    address: String
+    status: Int
+    hobbies: String
+}
+
+type Query {
+    employees: [Employee]
+        @resolver(class: "Adobe\\Employee\\Model\\Resolver\\Employees")
+}
+
+type Mutation {
+    createEmployee(
+        name: String!,
+        joining_date: String!,
+        designation: String!,
+        address: String,
+        status: Int!,
+        hobbies: String
+    ): Employee
+        @resolver(class: "Adobe\\Employee\\Model\\Resolver\\CreateEmployee")
+
+    updateEmployee(
+        entity_id: Int!,
+        name: String,
+        joining_date: String,
+        designation: String,
+        address: String,
+        status: Int,
+        hobbies: String
+    ): Employee
+        @resolver(class: "Adobe\\Employee\\Model\\Resolver\\UpdateEmployee")
+
+    deleteEmployee(
+        entity_id: Int!
+    ): Boolean
+        @resolver(class: "Adobe\\Employee\\Model\\Resolver\\DeleteEmployee")
+}

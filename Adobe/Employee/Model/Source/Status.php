@@ -6,6 +6,7 @@
 namespace Adobe\Employee\Model\Source;
 
 use Magento\Framework\Data\OptionSourceInterface;
+
 /**
  * Status OptionSourceInterface class
  */

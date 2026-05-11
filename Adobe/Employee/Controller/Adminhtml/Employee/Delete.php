@@ -6,27 +6,32 @@
 namespace Adobe\Employee\Controller\Adminhtml\Employee;
 
 use Magento\Backend\App\Action;
-/**
- * Delete Extends Action class
- */
+use Adobe\Employee\Api\EmployeeRepositoryInterface;
+
 class Delete extends Action
 {
-    protected $employeeFactory;
+    protected $employeeRepository;
 
     public function __construct(
         Action\Context $context,
-        \Adobe\Employee\Model\EmployeeFactory $employeeFactory
+        EmployeeRepositoryInterface $employeeRepository
     ) {
         parent::__construct($context);
-        $this->employeeFactory = $employeeFactory;
+        $this->employeeRepository = $employeeRepository;
     }
 
     public function execute()
     {
         $id = $this->getRequest()->getParam('id');
 
-        $model = $this->employeeFactory->create()->load($id);
-        $model->delete();
+        try {
+            $employee = $this->employeeRepository->getById($id);
+            $this->employeeRepository->delete($employee);
+
+            $this->messageManager->addSuccessMessage(__('Employee deleted successfully.'));
+        } catch (\Exception $e) {
+            $this->messageManager->addErrorMessage($e->getMessage());
+        }
 
         return $this->_redirect('*/*/');
     }
